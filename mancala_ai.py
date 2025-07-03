@@ -227,7 +227,6 @@ class GAME:
                     else:
                         print("Invalid. Choose a non-empty pit 1-6.")
                 self.SET_STATE(NEXT_STATE(self.state, move))
-                print(self.GET_STATE())
             else:
                 print("AI thinking...")
                 _, ai_move = MINIMAX_ALPHA_BETA(self.state, self.depth, True, float('-inf'), float('inf'), False)
