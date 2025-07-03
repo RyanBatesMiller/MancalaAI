@@ -254,7 +254,7 @@ def main():
     while (True):
         mode = input("Enter 'self' or 'play': ")
         game = GAME()
-        depth = input("Depth for AI (default 8): ")
+        depth = input("Depth for AI (easy: 1-3, intermediate: 4-6, hard: 7-9, pro: 10-12): ")
         game.UPDATE_DEPTH(int(depth) if depth.isdigit() else 8)
         if mode=='self':
             game.PLAY_SELF()
