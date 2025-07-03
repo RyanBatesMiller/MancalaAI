@@ -238,6 +238,10 @@ class GAME:
         print("Final -> YOU:", COUNT_SEEDS(self.state, True), "AI:", COUNT_SEEDS(self.state, False))
 
     def PLAY_SELF(self):
+        # auto-move first 2 moves (saves much time)
+        if self.depth >= 12:
+            self.AUTO_MOVE_BEGINNING_GAME()
+
         while not TERMINAL_STATE(self.state):
             self.PRINT_BOARD()
             player = IS_PLAYER1_TURN(self.state)
@@ -247,6 +251,15 @@ class GAME:
         self.PRINT_BOARD()
         print("Game over!")
         print("Final -> P1:", COUNT_SEEDS(self.state, True), "P2:", COUNT_SEEDS(self.state, False))
+
+    def AUTO_MOVE_BEGINNING_GAME(self):
+        self.PRINT_BOARD()
+        self.SET_STATE(NEXT_STATE(self.state, 2)) 
+        print(f"Player 1 moves pit 3")
+
+        self.PRINT_BOARD()
+        self.SET_STATE(NEXT_STATE(self.state, 5)) 
+        print(f"Player 1 moves pit 6")
 
 
 def main():
